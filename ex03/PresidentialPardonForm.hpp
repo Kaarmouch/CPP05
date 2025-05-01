@@ -10,18 +10,14 @@ class Bureaucrat;
 class AForm;
 
 class PresidentialPardonForm: public AForm {
-    private:
-        const std::string _target;
-        PresidentialPardonForm(void);
     public:
+        PresidentialPardonForm(void);
         PresidentialPardonForm(std::string target);
         PresidentialPardonForm(PresidentialPardonForm&);
         ~PresidentialPardonForm();
         PresidentialPardonForm &operator=(const PresidentialPardonForm&);
 
         void execute(const Bureaucrat&) const;
-
-        std::string getTarget(void) const;
 };
 
 std::ostream &operator<<(std::ostream&, PresidentialPardonForm*);

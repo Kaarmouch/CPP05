@@ -1,20 +1,20 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(void): AForm("RobotomyRequestForm", 72, 45), _target("default") {
+RobotomyRequestForm::RobotomyRequestForm(void): AForm("RobotomyRequestForm","default", 72, 45) {
 	std::cout << "RobotomyRequestForm constructor called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("RobotomyRequestForm", 72, 45), _target(target) {
-	std::cout << "RobotomyRequestForm constructor called target: " + _target  << std::endl;
+RobotomyRequestForm::RobotomyRequestForm(std::string target): AForm("RobotomyRequestForm", target, 72, 45) {
+	std::cout << "RobotomyRequestForm constructor called target: " + target  << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &src): AForm("RobotomyRequestForm", 72, 45), _target(src.getTarget()) {
-	std::cout << "RobotomyRequestForm copy constructor called target: " + _target << std::endl;
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm &src): AForm("RobotomyRequestForm",src.getTarget(), 72, 45) {
+	std::cout << "RobotomyRequestForm copy constructor called target: " + this->getTarget() << std::endl;
 	*this = src;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {
-	std::cout << "RobotomyRequestForm destructor called target: " + _target << std::endl;
+	std::cout << "RobotomyRequestForm destructor called target: " + this->getTarget() << std::endl;
 }
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &src)
@@ -38,9 +38,6 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor)const
 	else
 		std::cout << "RobotomyRequestForm Robotomy failed" << std::endl;
 }
-
-
-std::string	RobotomyRequestForm::getTarget(void) const { return _target; }
 
 
 std::ostream &operator<<(std::ostream &o, RobotomyRequestForm *a)

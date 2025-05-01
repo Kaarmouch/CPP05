@@ -5,16 +5,16 @@ PresidentialPardonForm::PresidentialPardonForm(void): AForm("PresidentialPardonF
 }
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target): AForm("PresidentialPardonForm", target,  72, 45){
-	std::cout << "PresidentialPardonForm constructor called target: " + _target << std::endl;
+	std::cout << "PresidentialPardonForm constructor called target: " + target << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &src): AForm("PresidentialPardonForm", src.getTarget, 72, 45), _target(src.getTarget()) {
-	std::cout << "PresidentialPardonForm copy constructor called target: " + _target << std::endl;
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm &src): AForm("PresidentialPardonForm", src.getTarget(), 72, 45) {
+	std::cout << "PresidentialPardonForm copy constructor called target: " + src.getTarget() << std::endl;
 	*this = src;
 }
 
 PresidentialPardonForm::~PresidentialPardonForm() {
-	std::cout << "PresidentialPardonForm destructor called target: " + _target  << std::endl;
+	std::cout << "PresidentialPardonForm destructor called target: " + this->getTarget()  << std::endl;
 }
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &src)
@@ -33,11 +33,9 @@ void	PresidentialPardonForm::execute(Bureaucrat const &executor)const
 	else if (!(this->getIsSigned()))
 		throw (AForm::FormNotSignedException());
 	else
-		std::cout << "PresidentialPardonForm " + _target + " has been pardoned by Zaphod Beeblerox" << std::endl;
+		std::cout << "PresidentialPardonForm " + this->getTarget() + " has been pardoned by Zaphod Beeblerox" << std::endl;
 }
 
-
-std::string	PresidentialPardonForm::getTarget(void) const { return _target; }
 
 std::ostream &operator<<(std::ostream &o, PresidentialPardonForm *a)
 {

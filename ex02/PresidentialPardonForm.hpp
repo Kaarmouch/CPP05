@@ -11,6 +11,7 @@ class AForm;
 
 class PresidentialPardonForm: public AForm {
     public:
+        PresidentialPardonForm(void);
         PresidentialPardonForm(std::string target);
         PresidentialPardonForm(PresidentialPardonForm&);
         ~PresidentialPardonForm();

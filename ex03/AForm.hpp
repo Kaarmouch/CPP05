@@ -15,49 +15,50 @@ class Bureaucrat;
 
 class AForm
 {
-public:
-    AForm(const AForm&);
+	public:
+		AForm(const AForm&);
 
-    virtual ~AForm();
+		virtual ~AForm();
 
-    AForm& operator=(const AForm&);
+		AForm& operator=(const AForm&);
 
-    void beSigned(const Bureaucrat&);
-    virtual void execute(Bureaucrat const &executor)const = 0;
+		void beSigned(const Bureaucrat&);
+		virtual void execute(Bureaucrat const &executor)const = 0;
 
-    std::string getName(void) const;
-    bool getIsSigned(void) const;
-    int getSignGrade(void) const;
-    int getExecGrade(void) const;
+		std::string getName(void) const;
+		bool getIsSigned(void) const;
+		int getSignGrade(void) const;
+		int getExecGrade(void) const;
+		std::string getTarget(void) const;
+		class GradeTooLowException: public std::exception 
+	{
+		public:
+			virtual const char *what(void) const throw();
+	};
 
-    class GradeTooLowException: public std::exception 
-    {
-	    public:
-            virtual const char *what(void) const throw();
-    };
+		class GradeTooHighException: public std::exception 
+	{
+		public:
+			virtual const char *what(void) const throw();
+	};
 
-    class GradeTooHighException: public std::exception 
-    {
-	    public:
-            virtual const char *what(void) const throw();
-    };
-    
-    class FormNotSignedException: public std::exception 
-    {
-	    public:
-            virtual const char *what(void) const throw();
-    };
+		class FormNotSignedException: public std::exception 
+	{
+		public:
+			virtual const char *what(void) const throw();
+	};
 
-protected:
-    const std::string _name;
-    bool _isSigned;
-    const int _signGrade;
-    const int _execGrade;
+		AForm(void); //
+		AForm(int, int); //
+		AForm(const std::string&); //
+		AForm(const std::string&, const std::string&, int, int); //
+	private:
+		const std::string _name;
+		bool _isSigned;
+		const int _signGrade;
+		const int _execGrade;
+		const std::string _target;
 
-    AForm(void); //
-    AForm(int, int); //
-    AForm(const std::string&); //
-    AForm(const std::string&, int, int); //
 };
 
 std::ostream &operator<<(std::ostream &o, AForm *a);

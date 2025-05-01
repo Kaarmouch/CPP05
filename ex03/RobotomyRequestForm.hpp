@@ -10,18 +10,14 @@ class Bureaucrat;
 class AForm;
 
 class RobotomyRequestForm: public AForm {
-    private:
-        const std::string _target;
-        RobotomyRequestForm(void);
-    public:
-        RobotomyRequestForm(std::string target);
-        RobotomyRequestForm(RobotomyRequestForm&);
-        ~RobotomyRequestForm();
-        RobotomyRequestForm &operator=(const RobotomyRequestForm&);
+	public:
+		RobotomyRequestForm(void);
+		RobotomyRequestForm(std::string target);
+		RobotomyRequestForm(RobotomyRequestForm&);
+		~RobotomyRequestForm();
+		RobotomyRequestForm &operator=(const RobotomyRequestForm&);
 
-        void execute(const Bureaucrat&) const;
-
-        std::string getTarget(void) const;
+		void execute(const Bureaucrat&) const;
 };
 
 std::ostream &operator<<(std::ostream&, RobotomyRequestForm*);

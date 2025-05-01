@@ -12,19 +12,16 @@ class AForm;
 
 class ShrubberyCreationForm: public AForm
 {
-private:
-    const std::string _target;
-    ShrubberyCreationForm(void);
-public:
-    ShrubberyCreationForm(std::string);
-    ShrubberyCreationForm(ShrubberyCreationForm&);
+	public:
+		ShrubberyCreationForm(void);
+		ShrubberyCreationForm(std::string);
+		ShrubberyCreationForm(ShrubberyCreationForm&);
 
-    ~ShrubberyCreationForm(void);
+		~ShrubberyCreationForm(void);
 
-    ShrubberyCreationForm &operator=(const ShrubberyCreationForm&);
+		ShrubberyCreationForm &operator=(const ShrubberyCreationForm&);
 
-    void execute(const Bureaucrat&)const;
-    std::string getTarget(void)const;
+		void execute(const Bureaucrat&)const;
 };
 
 std::ostream &operator<<(std::ostream&, ShrubberyCreationForm*);
