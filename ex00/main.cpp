@@ -3,10 +3,10 @@
 int main() {
     try {
         Bureaucrat b1("Alice", 2);
-        std::cout << &b1;
+        std::cout << b1 ;
 
         b1.incrementGrade();
-        std::cout << &b1;
+        std::cout << b1;
 
         // Ici ça va throw une exception (trop haut)
         b1.incrementGrade();
@@ -20,10 +20,10 @@ int main() {
 
     try {
         Bureaucrat b2("Bob", 149);
-        std::cout << &b2;
+        std::cout << b2 << std::endl;
 
         b2.decrementGrade();
-        std::cout << &b2;
+        std::cout << b2 << std::endl;
 
         // Ici ça va throw une exception (trop bas)
         b2.decrementGrade();

@@ -21,7 +21,7 @@ Form::Form(const int lvlS, const int lvlE): _Fname("Default"), _signed(0), signG
 Form::Form(std::string Fname, const int lvlS, const int lvlE): _Fname(Fname), _signed(0), signGrade(lvlS), exeGrade(lvlE) {
         std::cout << Fname << "'s form builded, require "<< lvlS << "/"<< lvlE << " to signe/exe"<< std::endl;
 	if (lvlS < 1 || lvlE < 1) throw Form::GradeTooHighException();
-	if (lvlS > 150 || lvlS > 150) throw Form::GradeTooLowException();
+	if (lvlS > 150 || lvlE > 150) throw Form::GradeTooLowException();
 }
 
 Form& Form::operator=(const Form& other)
@@ -79,12 +79,12 @@ const char *Form::GradeTooLowException::what(void) const throw() {
     return "grade too low";
 }
 
-std::ostream &operator<<(std::ostream &o, Form *a) 
+std::ostream &operator<<(std::ostream &o, Form &a) 
 {
-	o << "Form " << a->getFname() <<
-	"\n - signGrade:\t" << a->getSignGrade() <<
-	"\n - execGrade:\t" << a->getExeGrade() <<
-	"\n - isSigned:\t" << (a->getIsSigned() ? "true":"false") << std::endl;
+	o << "Form " << a.getFname() <<
+	"\n - signGrade:\t" << a.getSignGrade() <<
+	"\n - execGrade:\t" << a.getExeGrade() <<
+	"\n - isSigned:\t" << (a.getIsSigned() ? "true":"false") << std::endl;
 	return (o);
 }
 

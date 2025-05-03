@@ -49,9 +49,10 @@ class AForm
 	};
 
 		AForm(void); //
-		AForm(int, int); //
-		AForm(const std::string&); //
-		AForm(const std::string&, const std::string&, int, int); //
+                AForm(int, int); //
+                AForm(const std::string&); //
+                AForm(const std::string&, const std::string&, int, int); //
+
 	private:
 		const std::string _name;
 		bool _isSigned;

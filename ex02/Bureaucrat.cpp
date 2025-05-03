@@ -2,46 +2,46 @@
 #include "AForm.hpp"
 
 Bureaucrat::Bureaucrat(void): _name("default"), _grade(150) {
-    std::cout << "[Bureaucrat] " << "constructor called []" << std::endl;
+    std::cout << "Defqult Bureaucrat constructor called " << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat&src): _name(src._name + "(clone)") {
-    std::cout << "[Bureaucrat] " << " copy constructor called " << this->_grade << std::endl;
+    std::cout << "Bureaucrat copy constructor called " << this->_grade << std::endl;
     *this = src;
 }
 
 Bureaucrat::Bureaucrat(const int grade): _name("default") {
-    std::cout << "[Bureaucrat] " << " constructor called [grade:" << grade << "]" << std::endl;
+    std::cout << "Bureaucrat constructor called grade:" << grade << std::endl;
     this->setGrade(grade);
 }
 
 Bureaucrat::Bureaucrat(const std::string&name): _name(name), _grade(150) {
-    std::cout << "[Bureaucrat] " << "constructor called [name:" << name << "]" << std::endl;
+    std::cout << "Bureaucrat constructor called name:" << name <<  std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string&name, const int grade): _name(name) {
-    std::cout << "[Bureaucrat] " << "constructor called [name:" << name << ",grade:" << grade << "]" << std::endl;
+    std::cout << "Bureaucrat] constructor called name:" << name << ",grade:" << grade << std::endl;
     this->setGrade(grade);
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat&src) {
-    std::cout << "[Bureaucrat] " << "assignation operator called [" << &src << "]" << std::endl;
+    std::cout << "Bureaucrat assignation operator called " << std::endl;
     if (this == &src) return *this;
     this->setGrade(src._grade);
     return *this;
 }
 
 Bureaucrat::~Bureaucrat(void) {
-    std::cout << "[Bureaucrat] " << _name << " destructor called" << std::endl;
+    std::cout << "Bureaucrat " << _name << " destructor called" << std::endl;
 }
 
 void Bureaucrat::incrementGrade() {
-    std::cout << "[Bureaucrat] " << _name << " incrementing grade" << std::endl;
+    std::cout << "Bureaucrat " << _name << " incrementing grade" << std::endl;
     setGrade(this->_grade - 1);
 }
 
 void Bureaucrat::decrementGrade() {
-    std::cout << "[Bureaucrat] " << _name << " decrementing grade" << std::endl;
+    std::cout << "Bureaucrat " << _name << " decrementing grade" << std::endl;
     setGrade(this->_grade + 1);
 }
 

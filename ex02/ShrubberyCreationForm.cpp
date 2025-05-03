@@ -62,7 +62,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
 	else {
 		std::ofstream outfile((this->getTarget() + "_shrubbery").c_str());
 
-		for (int i = 0; i < 60; i++)
+		for (int i = 0; i < 3; i++)
 		{
 			outfile << tree << std::endl;
 		}
